@@ -9,3 +9,10 @@ Desenvolva um site Web com o conteúdo apresentado em sala de aula:
 - AJAX 
 - Login, acesso e/ou ações selecionadas por usuário. 
 - A entrega deverá ser acompanhada por uma carta relatando o que foi desenvolvido.
+
+*Dupla*: 
+Pilar Fernandez
+Sergio Gustavo
+
+*Projeto*:
+Sistema que possibilita o usuário enviar arquivos e visualizá-los juntamente na mesma página. Com um sistema de login, o usuário também terá a opção de salvar o arquivo gerado em sua conta. Em outra página estarão registrados todos os arquivos salvos, editá-los e deletá-los.
