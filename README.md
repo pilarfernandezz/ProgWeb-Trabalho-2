@@ -11,6 +11,7 @@ Desenvolva um site Web com o conteúdo apresentado em sala de aula:
 - A entrega deverá ser acompanhada por uma carta relatando o que foi desenvolvido.
 
 *Dupla*: 
+
 Pilar Fernandez
 
 Sergio Gustavo
