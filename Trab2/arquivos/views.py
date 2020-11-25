@@ -34,12 +34,13 @@ class ArquivoCreateView(View):
     # Cria um arquivo com os dados do formulário no banco de dados
     def post(self, request, *args, **kwargs):
         # formulário representa os dados do formulário vindos via POST
-        formulario = ArquivoModel2Form(request.POST)
+        formulario = ArquivoModel2Form(request.POST, request.FILES)
+
         print("aaaaa"+str(formulario))
         if formulario.is_valid():
-            print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
             # criar uma variável que representa o contato
             arquivo = formulario.save()
+        
                 # o contato ainda está somente em memória
                 # vou salvar no banco de dados
             arquivo.save()
