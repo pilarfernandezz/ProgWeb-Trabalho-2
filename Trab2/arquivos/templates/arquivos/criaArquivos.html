@@ -1,0 +1,20 @@
+{% extends 'arquivos/base.html' %}
+{% load static %}
+
+{% block title %}Cadastro de Usuário{% endblock %}
+
+{% block content %}
+<script type='text/javascript' src="../../static/js/cria.js">
+</script>
+  <h2>Entre com os seus dados</h2>
+  <form method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    {{ formulario.as_p }}
+    <input type="texto" name="texto" value="John"><br>    
+    <input type="submit" value="Cria usuário">
+
+  </form>
+{% endblock %}
+
+
