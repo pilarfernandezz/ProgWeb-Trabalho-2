@@ -1,0 +1,27 @@
+{% extends 'arquivos/base.html' %}
+
+{% block title %}Lista de Contatos do Meu Site{% endblock %}
+
+{% block content %}
+    <table border="1">
+      <tr>
+        <th>Titulo</th>
+        <th>Data</th>
+        <th>Texto</th>
+        <th></th>
+      </tr>
+    {% for texto in textos %}
+      <tr>
+        <td>{{ texto.titulo }}</td>
+        <td>{{ texto.data }}</td>
+        <td>{{ texto.conteudo }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <th colspan="6">
+          Ainda não tem contatos cadastrados
+        </th>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
