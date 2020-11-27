@@ -1,7 +1,12 @@
 from django.db import models
+from django import forms
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 class Arquivo(models.Model):
-    arquivo = models.CharField(max_length = 1000,default="", editable=False)
-    data =  models.CharField(max_length = 10,verbose_name='Data de nascimento',default="", editable=False)
-    titulo = models.CharField(max_length=100, help_text = "Entre com o titulo",default="", editable=False)
+    arquivo = models.FileField(validators=[FileExtensionValidator(allowed_extensions=['txt'])])
+    
+class Texto(models.Model):
+    conteudo = models.CharField(max_length = 1000, default="")
+    data =  models.CharField(max_length = 10,verbose_name='Data de criação',default="")
+    titulo = models.CharField(max_length=100, help_text = "Entre com o titulo",default="")

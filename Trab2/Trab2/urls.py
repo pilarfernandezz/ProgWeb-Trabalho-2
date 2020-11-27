@@ -19,6 +19,4 @@ from arquivos import views;
 
 urlpatterns = [
     path('arquivos/', include('arquivos.urls')),
-    #path('',views.home, name='homepage'),
-    #path('SegundaPagina', views.segundaPagina,name='segunda'),
 ]

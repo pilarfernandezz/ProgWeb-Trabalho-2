@@ -10,11 +10,11 @@
         <th>Texto</th>
         <th></th>
       </tr>
-    {% for arquivo in arquivos %}
+    {% for texto in textos %}
       <tr>
-        <td>{{ arquivo.titulo }}</td>
-        <td>{{ arquivo.data }}</td>
-        <td>{{ arquivo.texto }}</td>
+        <td>{{ texto.titulo }}</td>
+        <td>{{ texto.data }}</td>
+        <td>{{ texto.conteudo }}</td>
       </tr>
     {% empty %}
       <tr>
