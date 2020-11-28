@@ -3,25 +3,40 @@
 {% block title %}Lista de Contatos do Meu Site{% endblock %}
 
 {% block content %}
-    <table border="1">
+
+<link href="../../static/css/lista.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  {% for texto in textos %}
+  <button type="button" class="collapsible"><i class="fa fa-angle-down"></i> {{texto.titulo}}
+     <a class="edita" href="{% url 'arquivos:atualiza-arquivo' pk=texto.id %}" ><i class="fas fa-edit"></i> </a>
+    <a class="apaga" href="{% url 'arquivos:apaga-arquivo' pk=texto.id %}" ><i class="fas fa-trash-alt"></i></a>
+  </button>
+  <div class="content">
+    <table>
       <tr>
-        <th>Titulo</th>
-        <th>Data</th>
-        <th>Texto</th>
-        <th></th>
+        <td>[{{ texto.data }}]</td> 
+        <td><p class = "breakAll">{{ texto.conteudo }}</p></td>
       </tr>
-    {% for texto in textos %}
-      <tr>
-        <td>{{ texto.titulo }}</td>
-        <td>{{ texto.data }}</td>
-        <td>{{ texto.conteudo }}</td>
-      </tr>
-    {% empty %}
-      <tr>
-        <th colspan="6">
-          Ainda não tem contatos cadastrados
-        </th>
-      </tr>
-    {% endfor %}
-  </table>
+    </table>
+  </div>
+  <hr class="hr_solid">
+  {% endfor %}
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+    </script>
 {% endblock %}
