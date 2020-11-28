@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.views.generic.base import View
 from django.http.response import HttpResponseRedirect
 from django.urls.base import reverse_lazy
+from django.shortcuts import get_object_or_404
+
 from arquivos.forms import ArquivoModel2Form
 from arquivos.forms import TextoModel2Form
 
@@ -10,12 +12,35 @@ from arquivos.models import Arquivo
 from arquivos.models import Texto
 import datetime
 
-# Create your views here.
 class ArquivoDeleteView(View):
-    def a(): return
+    def get(self, request, pk, *args, **kwargs):
+        texto = Texto.objects.get(pk=pk)
+        context = {'texto': texto,}
+        return render(request, 'arquivos/apagaArquivo.html' , context)
+
+    def post(self, request, pk, *args, **kwargs):
+        texto = Texto.objects.get(pk=pk)
+        texto.delete()
+        return HttpResponseRedirect(reverse_lazy('arquivos:lista-arquivo'))
 
 class ArquivoUpdateView(View):
-    def a(): return
+    def get(self, request, pk, *args, **kwargs):
+        texto = Texto.objects.get(pk=pk)
+        formulario = TextoModel2Form(instance=texto)
+        context = {'formulario' : formulario,}
+        return render(request, 'arquivos/atualizaArquivo.html', context)
+
+    def post(self, request, pk, *args, **kwargs):
+        texto = get_object_or_404(Texto, pk=pk)
+        formulario = TextoModel2Form(request.POST, instance=texto)
+        if formulario.is_valid():
+            texto = formulario.save()
+            texto.save()
+            return HttpResponseRedirect(reverse_lazy('arquivos:lista-arquivo'))
+        else:
+            context = {'formulario' : formulario,}
+            return render(request, 'arquivos/atualizaArquivo.html', context)
+
 
 class ArquivoListView(View):
     def get(self, request, *args, **kwargs):
@@ -46,7 +71,7 @@ class ArquivoCreateView(View):
         if  form_texto.is_valid():  
             arquivo = form_texto.save(commit=False)
             arquivo.conteudo = content
-            arquivo.data = datetime.datetime.now()
+            arquivo.data = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             arquivo.save()
             return HttpResponseRedirect(reverse_lazy('arquivos:lista-arquivo'))
         else:

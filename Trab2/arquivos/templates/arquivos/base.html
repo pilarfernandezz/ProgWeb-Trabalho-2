@@ -7,7 +7,11 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <h1>Ferramente de união de documentos .txt</h1>
+    <h1>Ferramenta de união de documentos .txt</h1>
+    <a href="">Home page do site geral</a> |
+    <a href="{% url 'arquivos:cria-arquivo'%}">Cria um arquivo</a> |
+    <a href="{% url 'arquivos:lista-arquivo'%}">Lista todos os arquivos cadastrados</a>
+
     {% block content %}{% endblock %}
   </body>
 </html>
