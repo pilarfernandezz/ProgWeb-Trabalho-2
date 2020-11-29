@@ -1,0 +1,17 @@
+{% extends 'arquivos/base.html' %}
+{% load static %}
+
+{% block title %}Cadastro de Usuário{% endblock %}
+
+{% block content %}
+<script type='text/javascript' src="../../static/js/cria.js"></script>
+  <h2>Entre com os seus dados</h2>
+  <form method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{ form_texto.as_p }}
+    {{ form_arquivo.as_p }}
+    <input type="submit" value="Enviar">
+  </form>
+{% endblock %}
+
+

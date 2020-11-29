@@ -1,0 +1,54 @@
+.collapsible {
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #fff;
+  }
+  
+  .content {
+    display: none;
+    padding: 1px 0px 0px 1px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  p {
+    width: 1610px; 
+  }
+
+  .hr3 {
+    border: 0;
+    height: 2px;
+    width: 350px;
+    background-image: linear-gradient(to right, transparent, #bbbbbb, transparent);  
+    padding: 0px 0px 0px 0px;
+  
+  }
+  
+  .edita {
+    position: absolute;
+    right:50px;
+  }
+
+  .apaga {
+    position: absolute;
+    right:20px;
+  }
+
+  p.breakAll {
+  word-break: break-all;
+}
+
+  hr.solid {
+    padding: 0px 0px 0px 0px;
+    border-top: 1px solid #bbb;
+    width: 350px;
+  }
