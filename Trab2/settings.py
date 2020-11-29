@@ -123,7 +123,7 @@ STATIC_URL = '/static/'
 
 # Configure Django App for Heroku.
 try:
- import django_heroku
- django_heroku.settings(locals())
+    import django_heroku
+    django_heroku.settings(locals())
 except:
- pass
+    pass
