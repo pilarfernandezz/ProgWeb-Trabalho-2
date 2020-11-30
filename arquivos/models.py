@@ -8,5 +8,5 @@ class Arquivo(models.Model):
     
 class Texto(models.Model):
     conteudo = models.TextField( default="")
-    data =  models.CharField(max_length = 10,verbose_name='Data de criação',default="")
+    data =  models.CharField(max_length = 20,verbose_name='Data de criação',default="")
     titulo = models.CharField(max_length=100, help_text = "Entre com o titulo",default="")
