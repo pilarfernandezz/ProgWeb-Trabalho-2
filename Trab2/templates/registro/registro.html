@@ -4,16 +4,18 @@
 {% block title %}Cadastro de Usuário{% endblock %}
 
 {% block head %}
+<link href="../../static/registro/css/registro.css" rel="stylesheet">
+
 <script type='text/javascript' src="{% static 'registro/js/registro.js' %}">
 </script>
 {% endblock %}
 
 {% block content %}
   <h2>Entre com os seus dados</h2>
-  <div id='idErro'></div>
+  <div class="warning" id='idErro'></div>
+  <div class="warning" id = 'idErroPw'></div>
   <form method="post">
     {% csrf_token %}
-    <!-- para casa, transformar em tabela -->
     {{ form.as_p }}
     <input type="submit" value="Cria usuário">
   </form>

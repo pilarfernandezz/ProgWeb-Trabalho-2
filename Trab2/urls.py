@@ -68,4 +68,7 @@ urlpatterns = [
          name='password_reset_confirm'
     ),
     path('accounts/verificaUsername', views.verificaUsername, name='sec-verificaUsername'),
+     path('accounts/verificaPassword', views.verificaPassword, name='sec-verificaPassword'),
+     path('accounts/verificaPasswordConfirmation', views.verificaPasswordConfirmation, name='sec-verificaPasswordConfirmation'),
+
 ]
