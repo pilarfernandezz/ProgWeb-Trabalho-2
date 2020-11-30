@@ -1,6 +1,4 @@
 onload = function() {
-    console.log('onload')
-    // deveria ser change ou blur
     document.getElementById('id_username').addEventListener('keyup', verificaUsername);
     document.getElementById('id_password1').addEventListener('keyup', verificaPassword);
     document.getElementById('id_password2').addEventListener('keyup', verificaPasswordConfirmation);
@@ -8,10 +6,8 @@ onload = function() {
   
   //Verifica se o username digitado é único
   function verificaUsername(e) {
-    console.log('verificaUsername')
     var campoUsername = document.getElementById('id_username');
     valorUsername = campoUsername.value;
-    console.log('Campo username = ' + valorUsername)
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET',
       '/accounts/verificaUsername' + "?username=" + encodeURIComponent(valorUsername),
@@ -24,7 +20,6 @@ onload = function() {
   function verificaUsernameCallBack() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       var resposta = JSON.parse(xmlhttp.responseText)
-      console.log(resposta)
 
       if(resposta.existe) {
         const div = document.getElementById("idErro");
@@ -63,7 +58,6 @@ onload = function() {
   function verificaPasswordCallBack() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       var resposta = JSON.parse(xmlhttp.responseText)
-      console.log(resposta)
       const div = document.getElementById("idErroPw");
 
       if(!resposta.valido) {
@@ -102,7 +96,6 @@ onload = function() {
   function verificaPasswordConfirmationCallBack() {
     if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       var resposta = JSON.parse(xmlhttp.responseText)
-      console.log(resposta)
       const div = document.getElementById("idErroPw");
 
       if(!resposta.same) {

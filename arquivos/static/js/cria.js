@@ -8,7 +8,6 @@ const readMultiFiles = () => {
     const div = document.getElementById("div");
 
         const setup_reader = (file, type) => {
-            var name = file.name;
             var reader = new FileReader();
 
             reader.onload = e => {
@@ -27,8 +26,3 @@ const readMultiFiles = () => {
             }
         }
     }
-
-const clearFiles = () => {
-    FilesList = null;
-    location.reload();
-}

@@ -2,7 +2,6 @@ from django.db import models
 from django import forms
 from django.core.validators import FileExtensionValidator
 
-# Create your models here.
 class Arquivo(models.Model):
     arquivo = models.FileField(validators=[FileExtensionValidator(allowed_extensions=['txt'])])
     

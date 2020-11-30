@@ -8,9 +8,8 @@
   </head>
   <body>
     <h1>Ferramenta de união de documentos .txt</h1>
-    <a href="">Home page do site geral</a> |
-    <a href="{% url 'arquivos:cria-arquivo'%}">Cria um arquivo</a> |
-    <a href="{% url 'arquivos:lista-arquivo'%}">Lista todos os arquivos cadastrados</a>
+    <a href="{% url  'sec-home'%}">Home page</a> |
+    <a href="{% url 'arquivos:cria-arquivo'%}">Cria um arquivo</a> 
 
     {% block content %}{% endblock %}
   </body>
