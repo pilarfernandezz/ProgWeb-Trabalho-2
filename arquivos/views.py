@@ -66,6 +66,7 @@ class ArquivoCreateView(View):
         content = ""
         for file in files:
             content += file.read().decode("utf-8")
+            content += ' '
 
         if  form_texto.is_valid():  
             arquivo = form_texto.save(commit=False)
