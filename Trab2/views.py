@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 
+@login_required
 def homeSec(request):
     return render(request, "registro/homeSec.html")
 
